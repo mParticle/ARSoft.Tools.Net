@@ -84,6 +84,19 @@ namespace ARSoft.Tools.Net.Dns
 			IsUdpEnabled = true;
 			IsTcpEnabled = true;
 		}
+		
+		/// <summary>
+		///   Provides a new instance with custom dns servers, query timeout, and port
+		/// </summary>
+		/// <param name="dnsServers"> The IPAddresses of the dns servers to use </param>
+		/// <param name="queryTimeout"> Query timeout in milliseconds </param>
+		/// <param name="queryTimeout"> Port the DNS server is listening on </param>
+		public DnsClient(IEnumerable<IPAddress> dnsServers, int queryTimeout, int port)
+			: base(dnsServers, queryTimeout, port)
+		{
+			IsUdpEnabled = true;
+			IsTcpEnabled = true;
+		}
 
 		protected override int MaximumQueryMessageSize => 512;
 
